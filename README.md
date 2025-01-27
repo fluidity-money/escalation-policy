@@ -10,10 +10,10 @@ flowchart TD
 
   DidErrorTakeMoney[Did error take money but no action took place?] -->
   |Yes| IsUserEmbargoed[Is user from a embargoed country that could be disallowed in the OFAC allowlist?] -->
-  |Yes| IsErrorForOneOfOurs["Is the error for one of our properties (ie, 9lives, Longtail, etc)?"] -->
+  |No| IsErrorForOneOfOurs["Is the error for one of our properties (ie, 9lives, Longtail, etc)?"] -->
   |Yes| UseHighUrgencyFormEnableCall[Use the high urgency form, and trigger a phone call.]
 
-  IsUserEmbargoed -->|No| UseHighUrgencyFormSMSOnly[Use the high priority form, but use SMS to notify the team.]
+  IsUserEmbargoed -->|Yes| UseHighUrgencyFormSMSOnly[Use the high priority form, but use SMS to notify the team.]
 
   IsErrorForOneOfOurs -->|No| IsErrorForBridge[Is the error from the bridge?]
   --> |Yes| CouldErrorBeReasonablyAttributedToHumanErrorBridge[Could this error be attributed to human error?]
