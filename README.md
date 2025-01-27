@@ -8,7 +8,7 @@ flowchart TD
   style UseTrello fill:lightblue,stroke:lightblue,stroke-width:4px,bold
   style MessageModeratorsChannel fill:lightgreen,stroke:lightgreen,stroke-width:4px,bold
 
-  DidErrorTakeMoney[Did error take money but no action took place?] -->
+  DidErrorTakeMoney[Did error take money but no outcome took place?] -->
   |Yes| IsUserEmbargoed[Is user from a embargoed country that could be disallowed in the OFAC allowlist?] -->
   |No| IsErrorForOneOfOurs["Is the error for one of our properties (ie, 9lives, Longtail, etc)?"] -->
   |Yes| UseHighUrgencyFormEnableCall[Use the high urgency form, and trigger a phone call.]
