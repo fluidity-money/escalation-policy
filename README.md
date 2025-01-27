@@ -13,12 +13,12 @@ flowchart TD
   |No| IsErrorForOneOfOurs["Is the error for one of our properties (ie, 9lives, Longtail, etc)?"] -->
   |Yes| UseHighUrgencyFormEnableCall[Use the high urgency form, and trigger a phone call.]
 
-  IsUserEmbargoed -->|Yes| UseHighUrgencyFormSMSOnly[Use the high priority form, but use SMS to notify the team.]
+  IsUserEmbargoed -->|Yes| MessageModeratorsChannel
 
   IsErrorForOneOfOurs -->|No| IsErrorForBridge[Is the error from the bridge?]
   --> |Yes| CouldErrorBeReasonablyAttributedToHumanErrorBridge[Could this error be attributed to human error?]
   --> |Yes| MessageModeratorsChannel[Message the moderators channel, tagging Alex and Yoel.]
-  IsErrorForBridge -->|No| UseHighUrgencyFormSMSOnly
+  IsErrorForBridge -->|No| UseHighUrgencyFormSMSOnly[Use the high priority form, but use SMS to notify the team.]
 
   CouldErrorBeReasonablyAttributedToHumanErrorBridge -->|No| UseHighUrgencyFormEnableCall
 
