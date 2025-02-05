@@ -7,6 +7,7 @@ flowchart TD
   style UseHighUrgencyFormSMSOnly fill:yellow,stroke:yellow,stroke-width:4px,bold
   style UseTrello fill:lightblue,stroke:lightblue,stroke-width:4px,bold
   style MessageModeratorsChannel fill:lightgreen,stroke:lightgreen,stroke-width:4px,bold
+  style MessageSuperbridge fill:pink,stoke:pink,stroke-width:4px,bold
 
   DidErrorTakeMoney[Did error take money but no outcome took place?] -->
   |Yes| IsUserEmbargoed[Is user from a embargoed country that could be disallowed in the OFAC allowlist?] -->
@@ -20,7 +21,7 @@ flowchart TD
   --> |Yes| MessageModeratorsChannel[Message the moderators channel, tagging Alex and Yoel.]
   IsErrorForBridge -->|No| UseHighUrgencyFormSMSOnly[Use the high priority form, but use SMS to notify the team.]
 
-  CouldErrorBeReasonablyAttributedToHumanErrorBridge -->|No| UseHighUrgencyFormEnableCall
+  CouldErrorBeReasonablyAttributedToHumanErrorBridge -->|No| MessageSuperbridge[Message Superbridge, tag Alex]
 
   DidErrorTakeMoney -->
   |No| DidErrorReducePromisedAmount["Did the error reduce a promised amount (ie, percentage yield displayed zero)?"] -->
